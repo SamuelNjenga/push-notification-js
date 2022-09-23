@@ -8,6 +8,7 @@ button.addEventListener("click", () => {
         data: {
           hello: "world",
         },
+        icon: "glove_icon.png",
       });
       notification.data;
       notification.addEventListener("close", (e) => {
