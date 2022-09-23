@@ -23,13 +23,20 @@ button.addEventListener("click", () => {
 });
 
 let notification;
+let interval;
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "hidden") {
-    notification = new Notification("Come back please", {
-      body: "PLEASEEE",
-      tag: "Come Back",
-    });
+    const leaveDate = new Date();
+    interval = setInterval(() => {
+      notification = new Notification("Come back please", {
+        body: `You have been gone for ${Math.round(
+          (new Date() - leaveDate) / 1000
+        )} seconds`,
+        tag: "Come Back",
+      });
+    }, 100);
   } else {
-    notification.close();
+    if (interval) clearInterval(interval);
+    if (notification) notification.close();
   }
 });
