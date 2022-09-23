@@ -13,6 +13,9 @@ button.addEventListener("click", () => {
       notification.addEventListener("close", (e) => {
         console.log(e);
       });
+      notification.addEventListener("error", (e) => {
+        alert("error");
+      });
     }
   });
 });
