@@ -1,11 +1,15 @@
 const button = document.querySelector("button");
 
 button.addEventListener("click", () => {
-  Notification.requestPermission().then((perm) => {
+  const notification = Notification.requestPermission().then((perm) => {
     if (perm === "granted") {
       new Notification("Example notification", {
         body: "This is more text",
+        data: {
+          hello: "world",
+        },
       });
     }
   });
+  notification.data;
 });
